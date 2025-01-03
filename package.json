@@ -24,6 +24,7 @@
     "bootstrap": "^5.3.3",
     "cosmetics": "file:",
     "express": "^4.18.2",
+    "json2typescript": "^1.5.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
