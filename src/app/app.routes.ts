@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -19,3 +20,4 @@ export const routes: Routes = [
 ];
 
 // Có thể xử lý not null cho query params bằng Setting up redirects
+
