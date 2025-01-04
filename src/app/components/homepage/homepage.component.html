@@ -125,7 +125,7 @@
 
   <div class="d-flex justify-content-center py-2">
     <div class="categories-home">
-      <h3 class="px-2 text-start">Danh mục</h3>
+      <h4 class="ms-2 title-name mt-2">Danh mục</h4>
       <div class="d-flex flex-wrap justify-content-center mt-3">
         <div
           *ngFor="let category of categories"
@@ -138,6 +138,76 @@
           />
           <p class="mt-2">{{ category.name }}</p>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center py-2">
+    <div class="categories-home">
+      <h4 class="ms-2 title-name fw-bold mt-2">Top tìm kiếm</h4>
+      <div class="d-flex flex-wrap justify-content-between mt-3">
+        <div
+          *ngFor="let category of categories.slice(0, 4)"
+          class="category-item text-center px-3 mb-3 bg-white rounded shadow-sm mx-1"
+          style="width: calc(100% / 4 - 10px)"
+        >
+          <img
+            [src]="category.image"
+            alt="{{ category.name }}"
+            class="category-img img-fluid mb-2"
+          />
+          <h6 class="fw-bold mb-1">{{ category.name }}</h6>
+          <p class="text-muted">10 sản phẩm</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center py-2">
+    <div class="products-home">
+      <h4 class="ms-2 title-name">Danh sách sản phẩm</h4>
+      <div class="d-flex flex-wrap mt-3">
+        <div
+          *ngFor="let product of paginatedProducts"
+          class="product-item text-center mb-4 bg-white rounded"
+          style="width: calc(100% / 6 - 10px); margin: 0 5px"
+        >
+          <img
+            [src]="product.image"
+            alt="{{ product.name }}"
+            class="product-img img-fluid"
+          />
+          <div class="row">
+            <div class="col-10 ms-1">
+              <p class="mt-1 mb-0 text-start product-price">
+                {{ product.price.toLocaleString("vi") }} đ
+              </p>
+              <p class="mt-1 mb-0 text-start brand-name">Thương hiệu</p>
+              <p class="text-start product-name">{{ product.name }}</p>
+            </div>
+            <div class="col-1 d-flex justify-content-center">
+              <i class="bi bi-cart3"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center mt-3">
+        <button
+          class="me-2 transparent border-0"
+          (click)="prevPage()"
+          [disabled]="currentPage === 1"
+        >
+          <i class="bi bi-caret-left-fill"></i>
+        </button>
+        <span class="page-info mx-2">Trang {{ currentPage }}</span>
+        <button
+          class="transparent border-0 ms-2"
+          (click)="nextPage()"
+          [disabled]="currentPage * itemsPerPage >= products.length"
+        >
+          <i class="bi bi-caret-right-fill"></i>
+        </button>
       </div>
     </div>
   </div>
