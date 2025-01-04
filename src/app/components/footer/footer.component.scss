@@ -1,0 +1,34 @@
+/* Footer Styles */
+.footer {
+    background-color: #838586 !important;
+    color: white;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+  
+  .footer-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #f8f9fa;
+  }
+  
+  .footer-link {
+    color: #f8f9fa;
+    transition: color 0.2s;
+  }
+  
+  .footer-link:hover {
+    color: #adb5bd;
+    text-decoration: none;
+  }
+  
+  .footer-bottom-text {
+    text-align: center;
+    color: #f8f9fa;
+    font-size: 0.875rem;
+  }
+  
+  .fa-heart {
+    color: red;
+  }
+  
