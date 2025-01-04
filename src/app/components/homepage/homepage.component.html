@@ -1,1 +1,214 @@
-<p>homepage works!</p>
+<div class="home-page">
+  <div class="d-flex justify-content-center">
+    <div class="row container-home">
+      <div
+        id="bannerCarousel"
+        class="carousel slide d-flex justify-content-center py-2 col-9"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="assets/banner-1.jpg"
+              class="d-block banner-img w-100"
+              alt="Banner 1"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Khám phá bộ sưu tập mới</h5>
+              <p>Chất lượng và sự hài lòng cho làn da của bạn.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="assets/banner-2.jpg"
+              class="d-block w-100 banner-img"
+              alt="Banner 2"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Sản phẩm ưu đãi đặc biệt</h5>
+              <p>Mang đến vẻ đẹp hoàn hảo cho bạn.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="assets/banner-3.jpg"
+              class="d-block w-100 banner-img"
+              alt="Banner 3"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Chăm sóc làn da toàn diện</h5>
+              <p>Sản phẩm an toàn, hiệu quả từ thiên nhiên.</p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#bannerCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#bannerCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <div class="col-3 mt-2">
+        <div class="col-12 intro">
+          <div id="box_giaohang" class="p-3 border">
+            <h5 class="fw-bold text-center text-success mb-2">
+              <i class="bi bi-truck"></i> MIỄN PHÍ VẬN CHUYỂN
+            </h5>
+            <div class="d-flex align-items-center mb-2">
+              <img
+                src="https://hasaki.vn/images/graphics/delivery-120-minutes.png"
+                alt="Giao hàng 2H"
+                class="img-fluid me-3"
+                style="width: 100px"
+              />
+              <div>
+                <a
+                  href="https://hotro.hasaki.vn/van-chuyen-2h.html"
+                  class="text-decoration-none text-dark"
+                >
+                  Giao Nhanh Miễn Phí 2H tại 238 Chi Nhánh.
+                  <strong>Trễ tặng 100K</strong>
+                </a>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mb-2">
+              <img
+                src="https://hasaki.vn/images/graphics/img_quality_3.png"
+                alt="Đền bù 100%"
+                class="img-fluid me-3"
+                style="width: 100px"
+              />
+              <div>
+                Hasaki đền bù <strong>100%</strong> + hãng đền bù
+                <strong>100%</strong> nếu phát hiện hàng giả.
+              </div>
+            </div>
+            <div class="d-flex align-items-center mb-2">
+              <img
+                src="https://hasaki.vn/images/graphics/img_quality_2.png"
+                alt="Giao hàng miễn phí"
+                class="img-fluid me-3"
+                style="width: 100px"
+              />
+              <div>
+                <strong>Giao Hàng Miễn Phí</strong> (từ 90K tại 58 Tỉnh Thành
+                trừ huyện, toàn Quốc từ 249K)
+              </div>
+            </div>
+            <div class="d-flex align-items-center mb-2">
+              <img
+                src="https://media.hcdn.vn/hsk/icons/img_quality_44.png"
+                alt="Đổi trả 30 ngày"
+                class="img-fluid me-3"
+                style="width: 100px"
+              />
+              <div>Đổi trả trong <strong>30 ngày</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center py-2">
+    <div class="categories-home">
+      <h4 class="ms-2 title-name mt-2">Danh mục</h4>
+      <div class="d-flex flex-wrap justify-content-center mt-3">
+        <div
+          *ngFor="let category of categories"
+          class="category-item text-center mx-1"
+        >
+          <img
+            [src]="category.image"
+            alt="{{ category.name }}"
+            class="category-img"
+          />
+          <p class="mt-2">{{ category.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center py-2">
+    <div class="categories-home">
+      <h4 class="ms-2 title-name fw-bold mt-2">Top tìm kiếm</h4>
+      <div class="d-flex flex-wrap justify-content-between mt-3">
+        <div
+          *ngFor="let category of categories.slice(0, 4)"
+          class="category-item text-center px-3 mb-3 bg-white rounded shadow-sm mx-1"
+          style="width: calc(100% / 4 - 10px)"
+        >
+          <img
+            [src]="category.image"
+            alt="{{ category.name }}"
+            class="category-img img-fluid mb-2"
+          />
+          <h6 class="fw-bold mb-1">{{ category.name }}</h6>
+          <p class="text-muted">10 sản phẩm</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center py-2">
+    <div class="products-home">
+      <h4 class="ms-2 title-name">Danh sách sản phẩm</h4>
+      <div class="d-flex flex-wrap mt-3">
+        <div
+          *ngFor="let product of paginatedProducts"
+          class="product-item text-center mb-4 bg-white rounded"
+          style="width: calc(100% / 6 - 10px); margin: 0 5px"
+        >
+          <img
+            [src]="product.image"
+            alt="{{ product.name }}"
+            class="product-img img-fluid"
+          />
+          <div class="row">
+            <div class="col-10 ms-1">
+              <p class="mt-1 mb-0 text-start product-price">
+                {{ product.price.toLocaleString("vi") }} đ
+              </p>
+              <p class="mt-1 mb-0 text-start brand-name">Thương hiệu</p>
+              <p class="text-start product-name">{{ product.name }}</p>
+            </div>
+            <div class="col-1 d-flex justify-content-center">
+              <i class="bi bi-cart3"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center mt-3">
+        <button
+          class="me-2 transparent border-0"
+          (click)="prevPage()"
+          [disabled]="currentPage === 1"
+        >
+          <i class="bi bi-caret-left-fill"></i>
+        </button>
+        <span class="page-info mx-2">Trang {{ currentPage }}</span>
+        <button
+          class="transparent border-0 ms-2"
+          (click)="nextPage()"
+          [disabled]="currentPage * itemsPerPage >= products.length"
+        >
+          <i class="bi bi-caret-right-fill"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
