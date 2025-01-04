@@ -4,10 +4,11 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { CartComponent } from './components/cart/cart.component';
 import { authGuard } from './guards/auth.guard';
-
+import { CosmeticComponent } from './components/cosmetic/cosmetic.component';
 export const routes: Routes = [
     {path: '', redirectTo: 'homepage', pathMatch: 'full'},
     {path: 'homepage', component: HomepageComponent},
+    {path: 'cosmetics/:id', component: CosmeticComponent},
     {path: 'auth/:type-auth', component: AuthComponent},
     {
         path: 'user',
