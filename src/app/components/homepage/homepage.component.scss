@@ -1,0 +1,65 @@
+.banner-img{
+    height: 500px;
+    object-fit: cover;
+}
+.container-home{ 
+    width: 90%;
+}
+.carousel-inner{
+    box-shadow:1px solid black ;
+}
+
+#box_giaohang{
+    height: 500px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.categories-home {
+    width: 89%;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.products-home{
+    width: 90%;
+    border-radius: 5px;
+}
+.category-item {
+    width: 150px;
+}
+  
+.category-img {
+    border: 1px solid rgb(12, 239, 239);
+    width: 100%;
+    height: 200px !important;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+
+.home-page{
+    background-color: #F2F1F6;
+}
+
+.title-name{
+    color: #306E51;
+    font-weight: bold;
+}
+
+.brand-name{
+    color: #306E51;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.product-name{
+    font-size: 14px;
+}
+
+.product-price{
+    font-size: 18px;
+    color: #FF6639;
+    font-weight: bold;
+}
