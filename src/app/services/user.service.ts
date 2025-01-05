@@ -10,18 +10,18 @@ import {RegisterDTO} from '../dtos/register.dto';
 })
 export class UserService {
 
-  private readonly apiBaseUrl = `${environment.apiBaseUrl}/user`
+  private readonly apiBaseUrl = `${environment.apiBaseUrl}`
 
   constructor(
     private http : HttpClient
   ) { }
 
   login$ = (loginDTO : LoginDTO) : Observable<any> => {
-    return this.http.post<any>(`${this.apiBaseUrl}/login`, loginDTO);
+    return this.http.post<any>(`${this.apiBaseUrl}/auth/login`, loginDTO);
   }
 
   register$ = (registerDTO : RegisterDTO) : Observable<any> => {
-    return this.http.post<any>(`${this.apiBaseUrl}/register`, registerDTO);
+    return this.http.post<any>(`${this.apiBaseUrl}/auth/register`, registerDTO);
   }
 
 }
