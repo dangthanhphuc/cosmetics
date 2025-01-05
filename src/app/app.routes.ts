@@ -5,6 +5,9 @@ import { AuthComponent } from './components/auth/auth.component';
 import { CartComponent } from './components/cart/cart.component';
 import { authGuard } from './guards/auth.guard';
 import { CosmeticComponent } from './components/cosmetic/cosmetic.component';
+import { adminGuard } from './guards/admin.guard';
+import { AdminComponent } from './components/admin/admin.component';
+import { ProductComponent } from './components/admin/product/product.component';
 export const routes: Routes = [
     {path: '', redirectTo: 'homepage', pathMatch: 'full'},
     {path: 'homepage', component: HomepageComponent},
@@ -15,6 +18,14 @@ export const routes: Routes = [
         canActivateChild: [authGuard],
         children: [
             {path: 'cart', component: CartComponent},
+        ]
+    },
+    {
+        path: 'admin',
+        component : AdminComponent,
+        canActivateChild: [adminGuard],
+        children: [
+            {path: 'products', component: ProductComponent}
         ]
     },
     {path: '**', component: HomepageComponent} // Wildcard route for a 404 page
