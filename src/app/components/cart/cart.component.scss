@@ -19,3 +19,60 @@
     width: 90%;
     padding: 10px;
 }
+
+//order
+  h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+  
+  input[type="text"],
+  input[type="tel"],
+  textarea {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .form-check-label {
+    margin-left: 5px;
+  }
+  
+  .form-check-inline {
+    margin-right: 15px;
+  }
+  
+  #product-details {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+  

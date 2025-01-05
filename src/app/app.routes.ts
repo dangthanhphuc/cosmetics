@@ -9,15 +9,18 @@ import { SearchComponent } from './components/search/search.component';
 import { adminGuard } from './guards/admin.guard';
 import { AdminComponent } from './components/admin/admin.component';
 import { ProductComponent } from './components/admin/product/product.component';
+import { OrderComponent } from './components/order/order.component';
 export const routes: Routes = [
     {path: '', redirectTo: 'homepage', pathMatch: 'full'},
     {path: 'homepage', component: HomepageComponent},
     {path: 'cosmetics/:id', component: CosmeticComponent},
     {path: 'search', component: SearchComponent},
     {path: 'auth/:type-auth', component: AuthComponent},
-    {path: 'admin', component: AdminComponent},
+    {path: 'adminadmin', component: AdminComponent},
     {path: 'product', component: ProductComponent},
-    {
+    {path: 'order', component: OrderComponent},
+    {path: 'cart', component: CartComponent},
+    {   
         path: 'user',
         canActivateChild: [authGuard],
         children: [
