@@ -1,127 +1,85 @@
 <div class="d-flex justify-content-center">
-  <div class="product-detail mt-5 row">
-    <div class="col-9">
-      <div class="row">
-        <div class="col-md-5">
-          <img
-            [src]="mainImage"
-            alt="Product Image"
-            class="product-image img-fluid border mb-3"
-          />
+    <div class="product-detail mt-5 row">
+        <div class="col-9">
+            <div class="row">
+                <div class="col-md-5">
+                    <img [src]="mainImageUrl" alt="Product Image" class="product-image img-fluid border mb-3" />
 
-          <div class="d-flex justify-content-start gap-2 py-2">
-            <img
-              *ngFor="let image of images"
-              [src]="image"
-              alt="Thumbnail"
-              class="thumbnail-image img-thumbnail"
-              (click)="changeMainImage(image)"
-            />
-          </div>
-        </div>
-        <div class="col-md-7">
-          <h1 class="product-header">
-            Kem Chống Năng Skin1004 Nâng Tông Cho Da Nhạy Cảm SPF50+ 50ml
-          </h1>
-          <p>Centella Tone Brightening Tone-up Sunscreen SPF50+ PA++++</p>
-          <p>
-            <span class="flash-deal">FLASH DEAL</span>
-            <span class="countdown">Kết thúc trong 00:47:55</span>
-          </p>
-          <div class="d-flex align-items-center mb-3">
-            <span class="h4 text-danger">285.000 đ</span>
-            <span class="price-original">455.000 đ</span>
-            <span class="text-success ms-3">Tiết kiệm: 170.000 đ (-37%)</span>
-          </div>
-          <div class="mt-3">
-            <label for="quantity">Số lượng:</label>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              value="1"
-              min="1"
-              class="form-control d-inline-block w-auto ms-2"
-            />
-          </div>
-          <div class="mt-4">
-            <button class="btn btn-outline-primary me-3">Giỏ hàng</button>
-            <button class="btn btn-buy-now">Mua ngay NowFree 2H</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="col-12">
-        <div id="box_giaohang" class="p-3 border">
-          <h5 class="fw-bold text-center text-success mb-3">
-            <i class="bi bi-truck"></i> MIỄN PHÍ VẬN CHUYỂN
-          </h5>
+                    <div class="d-flex justify-content-start gap-2 py-2">
+                        @for(image of cosmetic.images; track image.id) {
+                        <img [src]="image.url" alt="Thumbnail" class="thumbnail-image img-thumbnail" (click)="changeMainImage(image.url)" /> }
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <h1 class="product-header">
+                        {{cosmetic.name}}
+                    </h1>
+                    <p>{{cosmetic.description}}</p>
+                    <p>
+                        <span class="flash-deal">FLASH DEAL</span>
+                        <span class="countdown">Kết thúc trong 00:47:55</span>
+                    </p>
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="h4 text-danger">{{ cosmetic.price.toLocaleString("vi") }} đ</span>
+                        <span class="price-original">455.000 đ</span>
+                        <span class="text-success ms-3">Tiết kiệm: 170.000 đ (-37%)</span>
+                    </div>
+                    <div class="mt-3">
+                        <label for="quantity">Số lượng:</label>
 
-          <div class="d-flex align-items-center mb-2">
-            <img
-              src="https://hasaki.vn/images/graphics/delivery-120-minutes.png"
-              alt="Giao hàng 2H"
-              class="img-fluid me-3"
-              style="width: 100px"
-            />
-            <div>
-              <a
-                href="https://hotro.hasaki.vn/van-chuyen-2h.html"
-                class="text-decoration-none text-dark"
-              >
+                        <input type="number" id="quantity" name="quantity" [(ngModel)]="quantity" min="1" class="form-control d-inline-block w-auto ms-2" />
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn btn-outline-primary me-3" (click)="addToCart()">Giỏ hàng</button>
+                        <button class="btn btn-buy-now">Mua ngay NowFree 2H</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="col-12">
+                <div id="box_giaohang" class="p-3 border">
+                    <h5 class="fw-bold text-center text-success mb-3">
+                        <i class="bi bi-truck"></i> MIỄN PHÍ VẬN CHUYỂN
+                    </h5>
+
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="https://hasaki.vn/images/graphics/delivery-120-minutes.png" alt="Giao hàng 2H" class="img-fluid me-3" style="width: 100px" />
+                        <div>
+                            <a href="https://hotro.hasaki.vn/van-chuyen-2h.html" class="text-decoration-none text-dark">
                 Giao Nhanh Miễn Phí 2H tại 238 Chi Nhánh.
                 <strong>Trễ tặng 100K</strong>
               </a>
-            </div>
-          </div>
+                        </div>
+                    </div>
 
-          <div class="d-flex align-items-center mb-2">
-            <img
-              src="https://hasaki.vn/images/graphics/img_quality_3.png"
-              alt="Đền bù 100%"
-              class="img-fluid me-3"
-              style="width: 100px"
-            />
-            <div>
-              Hasaki đền bù <strong>100%</strong> + hãng đền bù
-              <strong>100%</strong> nếu phát hiện hàng giả.
-            </div>
-          </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="https://hasaki.vn/images/graphics/img_quality_3.png" alt="Đền bù 100%" class="img-fluid me-3" style="width: 100px" />
+                        <div>
+                            Hasaki đền bù <strong>100%</strong> + hãng đền bù
+                            <strong>100%</strong> nếu phát hiện hàng giả.
+                        </div>
+                    </div>
 
-          <div class="d-flex align-items-center mb-2">
-            <img
-              src="https://hasaki.vn/images/graphics/img_quality_2.png"
-              alt="Giao hàng miễn phí"
-              class="img-fluid me-3"
-              style="width: 100px"
-            />
-            <div>
-              <strong>Giao Hàng Miễn Phí</strong> (từ 90K tại 58 Tỉnh Thành trừ
-              huyện, toàn Quốc từ 249K)
-            </div>
-          </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="https://hasaki.vn/images/graphics/img_quality_2.png" alt="Giao hàng miễn phí" class="img-fluid me-3" style="width: 100px" />
+                        <div>
+                            <strong>Giao Hàng Miễn Phí</strong> (từ 90K tại 58 Tỉnh Thành trừ huyện, toàn Quốc từ 249K)
+                        </div>
+                    </div>
 
-          <div class="d-flex align-items-center mb-2">
-            <img
-              src="https://media.hcdn.vn/hsk/icons/img_quality_44.png"
-              alt="Đổi trả 30 ngày"
-              class="img-fluid me-3"
-              style="width: 100px"
-            />
-            <div>Đổi trả trong <strong>30 ngày</strong>.</div>
-          </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="https://media.hcdn.vn/hsk/icons/img_quality_44.png" alt="Đổi trả 30 ngày" class="img-fluid me-3" style="width: 100px" />
+                        <div>Đổi trả trong <strong>30 ngày</strong>.</div>
+                    </div>
 
-          <div class="text-center">
-            <a
-              href="https://hotro.hasaki.vn/phi-van-chuyen.html"
-              class="btn btn-outline-success"
-            >
+                    <div class="text-center">
+                        <a href="https://hotro.hasaki.vn/phi-van-chuyen.html" class="btn btn-outline-success">
               Xem thêm
             </a>
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
