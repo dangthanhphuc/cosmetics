@@ -1,1 +1,24 @@
-<p>admin works!</p>
+<div class="admin-container">
+  <aside class="admin-sidebar">
+    <div class="d-flex justify-content-center">
+      <img src="assets/logo.png" alt="abc" class="avatar" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Trang chủ</a></li>
+      <li>
+        <a
+          href="#"
+          [routerLink]="['/product']"
+          routerLinkActive="router-link-active"
+          >Quản lý sản phẩm</a
+        >
+      </li>
+    </ul>
+  </aside>
+
+  <div class="admin-main">
+    <section class="admin-content">
+      <p>Hello</p>
+    </section>
+  </div>
+</div>
