@@ -1,1 +1,130 @@
-<p>search works!</p>
+<div class="py-2 d-flex justify-content-center">
+  <div class="row search-page">
+    <div class="col-3">
+      <form>
+        <div class="mb-3 py-3">
+          <h5>Giá</h5>
+          <div class="d-flex justify-content-between">
+            <div class="input-group">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="đ Từ"
+                [(ngModel)]="minPrice"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+            <div class="input-group">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="đ Đến"
+                [(ngModel)]="maxPrice"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </div>
+          <button
+            class="btn btn-primary mt-3"
+            (click)="applyPriceFilter()"
+            [disabled]="!minPrice || !maxPrice"
+          >
+            Áp dụng
+          </button>
+        </div>
+
+        <div class="mb-3">
+          <h5>Danh mục</h5>
+          <div class="scrollable-list" *ngIf="categories.length > 5">
+            <div *ngFor="let category of categories" class="form-check ms-2">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="category-{{ category }}"
+                [value]="category"
+              />
+              <label class="form-check-label" for="category-{{ category }}">{{
+                category
+              }}</label>
+            </div>
+          </div>
+          <div *ngIf="categories.length <= 5">
+            <div *ngFor="let category of categories" class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="category-{{ category }}"
+                [value]="category"
+              />
+              <label class="form-check-label" for="category-{{ category }}">{{
+                category
+              }}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <h5>Thương hiệu</h5>
+          <div class="scrollable-list" *ngIf="brands.length > 5">
+            <div *ngFor="let brand of brands" class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="brand-{{ brand }}"
+                [value]="brand"
+              />
+              <label class="form-check-label" for="brand-{{ brand }}">{{
+                brand
+              }}</label>
+            </div>
+          </div>
+          <div *ngIf="brands.length <= 5">
+            <div *ngFor="let brand of brands" class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="brand-{{ brand }}"
+                [value]="brand"
+              />
+              <label class="form-check-label" for="brand-{{ brand }}">{{
+                brand
+              }}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <h5>Xuất xứ</h5>
+          <div class="scrollable-list" *ngIf="origins.length > 5">
+            <div *ngFor="let origin of origins" class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="origin-{{ origin }}"
+                [value]="origin"
+              />
+              <label class="form-check-label" for="origin-{{ origin }}">{{
+                origin
+              }}</label>
+            </div>
+          </div>
+          <div *ngIf="origins.length <= 5">
+            <div *ngFor="let origin of origins" class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="origin-{{ origin }}"
+                [value]="origin"
+              />
+              <label class="form-check-label" for="origin-{{ origin }}">{{
+                origin
+              }}</label>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col ms-1 product-list"></div>
+  </div>
+</div>
