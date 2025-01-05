@@ -9,6 +9,9 @@ import { CartDTO } from '../../dtos/cart.dto';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { CartResponse } from '../../responses/cart.response';
 import { FormsModule, NgModel } from '@angular/forms';
+import { TokenService } from '../../services/token.service';
+import { Router } from '@angular/router';
+import { debug } from 'console';
 
 @Component({
   selector: 'app-cosmetic',
@@ -34,6 +37,8 @@ export class CosmeticComponent implements OnInit {
     private userService : UserService,
     private productService : ProductService,
     private cartService : CartService,
+    private tokenService : TokenService,
+    private router : Router,
     private localStorageService : LocalStorageService
   ) {}
 
@@ -54,14 +59,19 @@ export class CosmeticComponent implements OnInit {
   }
 
   addToCart(){
+    if(!this.tokenService.isValid()) {
+      this.router.navigate(['/auth/login']);
+    }
     const cartDTO : CartDTO = new CartDTO({
       user_id : this.localStorageService.get('userId'),
       product_id : this.cosmetic.id,
       quantity : this.quantity
     });
+    debugger
     console.log(this.quantity);
     this.cartService.$create(cartDTO).subscribe({
       next: (cart : CartResponse) => {
+        debugger
         console.log('Add to cart successfully', cart);
       },
       error: (error : any) => {

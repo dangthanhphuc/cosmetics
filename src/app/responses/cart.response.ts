@@ -2,12 +2,12 @@ import { UUID } from "crypto";
 import { CosmeticResponse } from "./cosmetic.response";
 
 export class CartResponse {
-    id : UUID;
+    user_id : UUID;
     quantity : number;
     product : CosmeticResponse;
 
     constructor(data : any){
-        this.id = data.id;
+        this.user_id = data.user_id;
         this.quantity = data.quantity;
         this.product = new CosmeticResponse(data.product);
     }

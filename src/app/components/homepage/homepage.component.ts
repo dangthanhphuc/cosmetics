@@ -79,6 +79,34 @@ export class HomepageComponent implements OnInit{
       }
     });
   }
-
+  getImageForCategory(name : string) {
+    switch (name) {
+      case "Son":
+        return "https://media.hcdn.vn/catalog/category/c24-trang-diem-moi_img_120x120_17b03c_fit_center.jpg";
+      case "Kem dưỡng":
+        return "https://media.hcdn.vn/catalog/category/c1897-duong-the_img_120x120_17b03c_fit_center.jpg";
+      case "Nước tẩy trang":
+        return "https://media.hcdn.vn/catalog/category/c52-trang-diem-mat_img_120x120_17b03c_fit_center.jpg";
+      case "Sữa dưỡng thể":
+        return "https://media.hcdn.vn/catalog/category/26_1_img_120x120_17b03c_fit_center.jpg";
+      case "Phấn":
+        return "https://media.hcdn.vn/catalog/category/30_1_img_120x120_17b03c_fit_center.jpg";
+      case "Kem nền":
+        return "https://media.hcdn.vn/catalog/category/1901_1_img_120x120_17b03c_fit_center.jpg";
+      case "Sữa rửa mặt":
+        return "https://media.hcdn.vn/catalog/category/19_3_img_120x120_17b03c_fit_center.jpg";
+      case "Bông tẩy trang":
+        return "https://media.hcdn.vn/catalog/category/48_1_img_120x120_17b03c_fit_center.jpg";
+      case "Mặt nạ":
+        return "https://media.hcdn.vn/catalog/category/30_1_img_120x120_17b03c_fit_center.jpg";
+      case "Kem chống nắng":
+        return "https://media.hcdn.vn/catalog/category/11_1_img_120x120_17b03c_fit_center.jpg";
+      case "Dầu gội đầu":
+        return "https://media.hcdn.vn/catalog/category/2144_img_120x120_17b03c_fit_center.jpg";
+      case "Cushion":
+        return "https://media.hcdn.vn/catalog/category/102_1_img_120x120_17b03c_fit_center.jpg";
+    }
+    return "";
+  }
 
 }

@@ -28,10 +28,7 @@ export class TokenService {
       const payload = this.payload();
       if(payload) {
         const currentTime = Math.floor(Date.now() / 1000);
-        const isValid = payload.iat <= currentTime && payload.exp > currentTime &&(payload.iss==="") ? true : false;
-        if(!isValid) {
-          return false;
-        }
+        return payload.iat <= currentTime && payload.exp > currentTime ? true : false;
       }
     }
     return false;
@@ -47,7 +44,6 @@ export class TokenService {
     }
     return false;
   }
-
 
 
   payload() {

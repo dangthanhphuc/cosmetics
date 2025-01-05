@@ -14,7 +14,7 @@ export class CartService {
 
   constructor(
     private http : HttpClient
-  ) { }
+  ) {}
 
   $cart = () : Observable<CartResponse[]> => {
     return this.http.get<CartResponse[]>(`${this.apiBaseUrl}`);
@@ -22,5 +22,13 @@ export class CartService {
 
   $create = (cartDTO : CartDTO) : Observable<CartResponse> => {
     return this.http.post<CartResponse>(`${this.apiBaseUrl}/create`, cartDTO);
+  }
+
+  $update = (cartsDTO : CartDTO[]) : Observable<CartResponse> => {
+    return this.http.put<CartResponse>(`${this.apiBaseUrl}/update`, {"carts" : cartsDTO});
+  }
+
+  $delete = (cartDTO : CartDTO) : Observable<string> => {
+    return this.http.delete<string>(`${this.apiBaseUrl}/delete`, {body : cartDTO});
   }
 }
