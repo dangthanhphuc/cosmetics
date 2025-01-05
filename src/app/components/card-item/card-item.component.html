@@ -1,13 +1,17 @@
-<img [src]="cosmetic().images[0]?.url" alt="{{ cosmetic().name }}" class="product-img img-fluid" />
+<img
+  [src]="cosmetic().images[0]?.url"
+  alt="{{ cosmetic().name }}"
+  class="product-img img-fluid"
+/>
 <div class="row">
-    <div class="col-10 ms-1">
-        <p class="mt-1 mb-0 text-start product-price">
-            {{ cosmetic().price.toLocaleString("vi") }} đ
-        </p>
-        <p class="mt-1 mb-0 text-start brand-name">{{cosmetic().brand.name}}</p>
-        <p class="text-start product-name">{{ cosmetic().name }}</p>
-    </div>
-    <div class="col-1 d-flex justify-content-center">
-        <i class="bi bi-cart3"></i>
-    </div>
+  <div class="col-10 ms-1">
+    <p class="mt-1 mb-0 text-start product-price">
+      {{ cosmetic().price.toLocaleString("vi") }} đ
+    </p>
+    <p class="mt-1 mb-0 text-start brand-name">{{ cosmetic().brand.name }}</p>
+    <p class="text-start product-name">{{ cosmetic().name }}</p>
+  </div>
+  <div class="col-1 d-flex justify-content-center">
+    <i class="bi bi-cart3"></i>
+  </div>
 </div>
