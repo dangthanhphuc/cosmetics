@@ -1,38 +1,57 @@
 import { Injectable } from '@angular/core';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
 
-  constructor() { }
+  constructor(
+    private localStorageService : LocalStorageService
+  ) { }
 
   set(token : string) {
-    localStorage.setItem('token', token);
+    this.localStorageService.save('token', token);
   }
 
   get() : string | null {
-    return localStorage.getItem('token');
+    return this.localStorageService.get('token');
   }
 
   remove() {
-    localStorage.removeItem('token');
+    this.localStorageService.remove('token');
   }
 
   isValid() : boolean {
     const token = this.get();
     if(token) {
-      const payload = this.payload(token);
+      const payload = this.payload();
       if(payload) {
         const currentTime = Math.floor(Date.now() / 1000);
-        return payload.iat <= currentTime && payload.exp > currentTime &&(payload.iss==="") ? true : false;
+        const isValid = payload.iat <= currentTime && payload.exp > currentTime &&(payload.iss==="") ? true : false;
+        if(!isValid) {
+          return false;
+        }
       }
     }
     return false;
   }
 
-  payload(token : any) {
-    const payloadEncode = token?.split('.')[1];
+  isAdmin() {
+    const token = this.get();
+    if(token) {
+      const payload = this.payload(); 
+      if(payload) {
+        return payload.role == 'ADMIN';
+      }
+    }
+    return false;
+  }
+
+
+
+  payload() {
+    const payloadEncode = this.get()?.split('.')[1];
     return this.decode(payloadEncode);
   }
 
