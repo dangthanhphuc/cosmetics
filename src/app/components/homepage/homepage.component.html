@@ -123,31 +123,32 @@
     </div>
   </div>
 
-  <div class="d-flex justify-content-center py-2">
-    <div class="categories-home">
-      <h4 class="ms-2 title-name mt-2">Danh mục</h4>
-      <div class="d-flex flex-wrap justify-content-center mt-3">
-        <div
-          *ngFor="let category of categories"
-          class="category-item text-center mx-1"
-        >
-          <p class="mt-2">{{ category.name }}</p>
+    <div class="d-flex justify-content-center py-2">
+        <div class="categories-home">
+            <h4 class="ms-2 title-name mt-2">Danh mục</h4>
+            <div class="d-flex flex-wrap justify-content-center mt-3">
+                <div *ngFor="let category of categories" class="category-item text-center mx-1">
+                    <img [src]="getImageForCategory(category.name)" alt="{{ category.name }}" class="category-img" />
+                    <p class="mt-2">{{ category.name }}</p>
+                </div>
+            </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="d-flex justify-content-center py-2">
-    <div class="categories-home">
-      <h4 class="ms-2 title-name fw-bold mt-2">Top tìm kiếm</h4>
-      <div class="d-flex flex-wrap justify-content-between mt-3">
-        <div
-          *ngFor="let category of categories.slice(0, 4)"
-          class="category-item text-center px-3 mb-3 bg-white rounded shadow-sm mx-1"
-          style="width: calc(100% / 4 - 10px)"
-        >
-          <h6 class="fw-bold mb-1">{{ category.name }}</h6>
-          <p class="text-muted">10 sản phẩm</p>
+
+    <div class="d-flex justify-content-center py-2">
+        <div class="categories-home">
+            <h4 class="ms-2 title-name fw-bold mt-2">Top tìm kiếm</h4>
+            <div class="d-flex flex-wrap justify-content-between mt-3">
+                <div *ngFor="let category of categories.slice(0, 4)" class="category-item text-center px-3 mb-3 bg-white rounded shadow-sm mx-1" style="width: calc(100% / 4 - 10px)">
+                    <img [src]="getImageForCategory(category.name)" alt="{{ category.name }}" class="category-img img-fluid mb-2" />
+                    <h6 class="fw-bold mb-1">{{ category.name }}</h6>
+                    <p class="text-muted">10 sản phẩm</p>
+                </div>
+            </div>
+
         </div>
       </div>
     </div>

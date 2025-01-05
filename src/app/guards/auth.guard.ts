@@ -14,9 +14,7 @@ class AuthGuard {
   }
   
   canActivate(next: ActivatedRouteSnapshot, state : RouterStateSnapshot) : boolean {
-
       if(this.tokenService.isValid()) {
-        this.router.navigate(['/homepage']);
         return true;
       }
       else {
